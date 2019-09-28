@@ -25,36 +25,24 @@ export class AppComponent {
 
   defaultList = [
     {
-      key: "BILLPAYMENT_TYPE",
-      value: "Wallet"
+       id: 0,
+      key: "BILLPAYMENT",
+      value: "Wallet_1002"
     },
     {
-      key: "BILLPAYMENT_VALUE",
-      value: "1002"
+       id: 0,
+      key: "REQUESTMONEY",
+      value: "Wallet_1002"
     },
     {
-      key: "SENDMONEY_TYPE",
-      value: "1002"
+       id: 0,
+      key: "SENDMONEY",
+      value: "Wallet_1002"
     },
     {
-      key: "SENDMONEY_VALUE",
-      value: "1002"
-    },
-    {
-      key: "REQUESTMONEY_TYPE",
-      value: "1002"
-    },
-    {
-      key: "REQUESTMONEY_VALUE",
-      value: "1002"
-    },
-    {
-      key: "QUICKPAYMENT_TYPE",
-      value: "1002"
-    },
-    {
-      key: "QUICKPAYMENT_VALUE",
-      value: "1002"
+       id: 0,
+      key: "QUICKPAYMENT",
+      value: "Wallet_1002"
     }
   ];
 
@@ -70,39 +58,43 @@ export class AppComponent {
       console.log(
         this.getKeyByValue(
           this.defaultList,
-          BILLPAYMENT_VALUE,
-          BILLPAYMENT_TYPE
+          BILLPAYMENT_VALUE
         )
       );
     } else if ((fromSendPage = SENDMONEY)) {
       console.log(
-        this.getKeyByValue(this.defaultList, SENDMONEY_TYPE, SENDMONEY_VALUE)
+        this.getKeyByValue(this.defaultList, SENDMONEY_TYPE)
       );
     } else if ((fromSendPage = REQUESTMONEY)) {
       console.log(
-        this.getKeyByValue(this.defaultList, REQUESTMONEY_TYPE, SENDMONEY_VALUE)
+        this.getKeyByValue(this.defaultList, REQUESTMONEY_TYPE)
       );
     } else if ((fromSendPage = QUICKPAYMENT)) {
       console.log(
         this.getKeyByValue(
           this.defaultList,
-          QUICKPAYMENT_TYPE,
-          QUICKPAYMENT_VALUE
+          QUICKPAYMENT_TYPE
+    
         )
       );
     }
   }
 
-  getKeyByValue(object, value, vtype) {
+  getKeyByValue(object, value) {
+    console.log(object[index].key);
     let tempData = [];
     for (var index = 0; index < object.length; index++) {
       console.log(object[index].key);
       if (object[index].key === value) {
         tempData.push(object[index]);
-      } else if (object[index].key === vtype) {
-        tempData.push(object[index]);
-      }
+        // setupPaymentType()
+      } 
     }
     return tempData;
+  }
+
+  setupPaymentType(){
+
+
   }
 }
