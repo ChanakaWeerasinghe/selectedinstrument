@@ -10,32 +10,41 @@ export class AppComponent  {
 
    defaultList = [
             {
-                key: "BillPayment",
+                key: "BILLPAYMENT_TYPE",
                 value: "Wallet"
             }, {
-                key: "BillPayment",
+                key: "BILLPAYMENT_VALUE",
                 value: "1002"
             }, {
-                key: "BillPayment",
+                key: "SENDMONEY_TYPE",
                 value: "1002"
             }, {
-                key: "BillPayment",
+                key: "SENDMONEY_VALUE",
                 value: "1002"
             }, {
-                key: "BillPayment",
+                key: "REQUESTMONEY_TYPE",
                 value: "1002"
             }, {
-                key: "BillPayment",
+                key: "REQUESTMONEY_VALUE",
                 value: "1002"
             }, {
-                key: "BillPayment",
+                key: "QUICKPAYMENT_TYPE",
                 value: "1002"
             }, {
-                key: "BillPayment",
+                key: "QUICKPAYMENT_VALUE",
                 value: "1002"
             }
         ];
 
-constructor
+constructor(){
+
+selectedType()
+{
+
+  
+}
+}
+
+
 
 }
