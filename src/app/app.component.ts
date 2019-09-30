@@ -25,22 +25,22 @@ export class AppComponent {
 
   defaultList = [
     {
-       id: 0,
+      id: 0,
       key: "BILLPAYMENT",
       value: "Wallet_1002"
     },
     {
-       id: 0,
+       id: 1,
       key: "REQUESTMONEY",
       value: "Wallet_1002"
     },
     {
-       id: 0,
+       id: 2,
       key: "SENDMONEY",
       value: "Wallet_1002"
     },
     {
-       id: 0,
+       id: 3,
       key: "QUICKPAYMENT",
       value: "Wallet_1002"
     }
@@ -55,38 +55,28 @@ export class AppComponent {
   getSelectedInstrument(fromSendPage: any) {
     let array = [];
     if ((fromSendPage = BILLPAYMENT)) {
-      console.log(
-        this.getKeyByValue(
-          this.defaultList,
-          BILLPAYMENT_VALUE
-        )
-      );
-    } else if ((fromSendPage = SENDMONEY)) {
-      console.log(
-        this.getKeyByValue(this.defaultList, SENDMONEY_TYPE)
-      );
-    } else if ((fromSendPage = REQUESTMONEY)) {
-      console.log(
-        this.getKeyByValue(this.defaultList, REQUESTMONEY_TYPE)
-      );
-    } else if ((fromSendPage = QUICKPAYMENT)) {
-      console.log(
-        this.getKeyByValue(
-          this.defaultList,
-          QUICKPAYMENT_TYPE
     
+        this.getKeyByValue(
+          this.defaultList,
+          BILLPAYMENT
         )
-      );
+      
+    } else if ((fromSendPage = SENDMONEY)) {
+    
+    } else if ((fromSendPage = REQUESTMONEY)) {
+   
+    } else if ((fromSendPage = QUICKPAYMENT)) {
+  
     }
   }
 
-  getKeyByValue(object, value) {
-    console.log(object[index].key);
+  getKeyByValue(object, value):any {
+    console.log(object[index]);
     let tempData = [];
     for (var index = 0; index < object.length; index++) {
-      console.log(object[index].key);
+      console.log(value);
       if (object[index].key === value) {
-        tempData.push(object[index]);
+        tempData.push(value);
         // setupPaymentType()
       } 
     }
