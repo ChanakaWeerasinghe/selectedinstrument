@@ -47,6 +47,7 @@ export class AppComponent {
   ];
 
   constructor() {
+    
     this.getSelectedInstrument("BILLPAYMENT");
   }
 
