@@ -30,17 +30,17 @@ export class AppComponent {
       value: "Wallet_1002"
     },
     {
-       id: 1,
+      id: 1,
       key: "REQUESTMONEY",
       value: "Wallet_1002"
     },
     {
-       id: 2,
+      id: 2,
       key: "SENDMONEY",
       value: "Wallet_1002"
     },
     {
-       id: 3,
+      id: 3,
       key: "QUICKPAYMENT",
       value: "Wallet_1002"
     }
@@ -55,36 +55,34 @@ export class AppComponent {
   getSelectedInstrument(fromSendPage: any) {
     let array = [];
     if ((fromSendPage = BILLPAYMENT)) {
-    
-        this.getKeyByValue(
-          this.defaultList,
-          BILLPAYMENT
-        )
-      
+      this.seachInstrument(this.defaultList, BILLPAYMENT).then(data =>
+        this.getTypeAndInstrument(data[0].value)
+      );
     } else if ((fromSendPage = SENDMONEY)) {
-    
     } else if ((fromSendPage = REQUESTMONEY)) {
-   
     } else if ((fromSendPage = QUICKPAYMENT)) {
-  
     }
   }
 
-  getKeyByValue(object, value):any {
-    console.log(object[index]);
-    let tempData = [];
-    for (var index = 0; index < object.length; index++) {
-      console.log(value);
-      if (object[index].key === value) {
-        tempData.push(value);
-        // setupPaymentType()
-      } 
-    }
-    return tempData;
+  seachInstrument(object, value): any {
+    return new Promise((resolve, reject) => {
+      let tempData = [];
+      if (!object) {
+        reject(tempData);
+      }
+      for (var index = 0; index < object.length; index++) {
+        if (object[index].key === value) {
+          tempData.push(object[index]);
+        }
+      }
+      resolve(tempData);
+    });
   }
 
-  setupPaymentType(){
-
-
+  getTypeAndInstrument(input) {
+    var fields = input.split("_");
+    var selectedType = fields[0];
+    var instrumentID = fields[1];
+    console.log('instrumentID',instrumentID,'SelectedType',selectedType);
   }
 }
